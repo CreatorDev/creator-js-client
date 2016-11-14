@@ -1,0 +1,52 @@
+{
+  "name": "creator-js-client",
+  "version": "2.0.0",
+  "description": "JS client library for creator device server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "iot",
+    "lwm2m",
+    "creator",
+    "rest",
+    "client",
+    "hateoas",
+    "internet of things",
+    "coap",
+    "creatordev",
+    "imagination"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CreatorDev/creator-js-client"
+  },
+  "bugs": {
+    "url": "https://github.com/CreatorDev/creator-js-client/issues"
+  },
+  "homepage": "https://github.com/CreatorDev/creator-js-client",
+  "author": "Imagination Technologies",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Murat Ereksel",
+      "url": "http://creatordev.io"
+    }
+  ],
+  "dependencies": {
+    "node-cache": "^4.1.0",
+    "promise": "^7.1.1",
+    "q": "0.9.7",
+    "request": "2.74.x",
+    "request-promise": "^4.1.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-dco": "0.0.3",
+    "jshint": "^2.9.4",
+    "mocha": "^3.1.2"
+  }
+}
