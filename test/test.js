@@ -1,7 +1,5 @@
 var assert = require('assert'); /* test dep */
-var config = require('./config'); /* import access keys */
-
-var creator = require('../lib')(config.accessKey, config.accessSecret);
+var creator = require('../lib')(); /* import keys from env variables */
 
 describe('Testing the base request(); function', function() {
     describe('it works', function() {
