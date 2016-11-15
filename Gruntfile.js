@@ -1,11 +1,11 @@
 module.exports = function(grunt) {
 
-grunt.initConfig({
-        jshint: {
-            files: ['Gruntfile.js', 'index.js', 'lib/**/*.js', 'test/**/*.js'], /* Options are defined within .jshintrc */
-        },
+    grunt.initConfig({
         dco: {
             path: "/"
+        },
+        jshint: {
+            files: ['Gruntfile.js', 'index.js', 'lib/**/*.js', 'test/**/*.js'], /* Options are defined within .jshintrc */
         }
     });
 
