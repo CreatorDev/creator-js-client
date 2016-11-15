@@ -4,7 +4,7 @@
 
 This js client allows you to use [The Creator IoT Framework](https://docs.creatordev.io/deviceserver/guides/iot-framework/), giving the possibility to quickly implement a client, to consume the Device Server REST API.
 
-![build status](https://api.travis-ci.org/CreatorDev/creator-js-client.svg?branch=master)
+[![build status](https://api.travis-ci.org/CreatorDev/creator-js-client.svg?branch=master)](http://travis-ci.org/CreatorDev/creator-js-client)
 
 ---
 
@@ -38,12 +38,12 @@ After signing up, you will need to create an access key and secret pair from the
 You can then create an instance of the library as follows: 
 
 ```js
-var creator = require('creator-node')('CREATOR_LOGIN_KEY', 'CREATOR_LOGIN_SECRET');
+var creator = require('creator-node')('CREATOR_ACCESS_KEY', 'CREATOR_ACCESS_SECRET');
 ```
 Please note that you can also set the following **environment variables** for the library to use. 
 
-* CREATOR_LOGIN_KEY
-* CREATOR_LOGIN_SECRET
+* CREATOR_ACCESS_KEY
+* CREATOR_ACCESS_SECRET
 
 
 Now you should have a working instance of the library that you can use to access your resources RESTfully.
