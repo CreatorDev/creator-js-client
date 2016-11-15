@@ -38,7 +38,7 @@ After signing up, you will need to create an access key and secret pair from the
 You can then create an instance of the library as follows: 
 
 ```js
-var creator = require('creator-node')('CREATOR_ACCESS_KEY', 'CREATOR_ACCESS_SECRET');
+var creator = require('creator-js-client')('CREATOR_ACCESS_KEY', 'CREATOR_ACCESS_SECRET');
 ```
 Please note that you can also set the following **environment variables** for the library to use. 
 
