@@ -45,6 +45,11 @@ Please note that you can also set the following **environment variables** for th
 * CREATOR_ACCESS_KEY
 * CREATOR_ACCESS_SECRET
 
+and then 
+
+```js
+var creator = require('creator-js-client')();
+```
 
 Now you should have a working instance of the library that you can use to access your resources RESTfully.
 
@@ -152,8 +157,8 @@ This will fetch you an array of your clients talking to the DeviceServer.
 
 ```js
 creator.request({
-    method: 'PUT'
-    steps: ['clients', {Name: 'CLIENT_NAME'}, 'objecttypes', {ObjectTypeID: '3201'}, 'instances', {InstanceID: '0'}]
+    method: 'PUT',
+    steps: ['clients', {Name: 'CLIENT_NAME'}, 'objecttypes', {ObjectTypeID: '3201'}, 'instances', {InstanceID: '0'}],
     data: {
         DigitalOutputState: true
     }
@@ -167,14 +172,14 @@ You can set the following options when calling the request(); method
 
 ```js
 creator.request({
-    follow: true //defaults to true, if this is set to true steps should be provided
-    method: 'PUT' // defaults to GET 
-    steps: ['accesskeys'] // steps for navigator to follow 
+    follow: true, //defaults to true, if this is set to true steps should be provided
+    method: 'PUT', // defaults to GET 
+    steps: ['accesskeys'], // steps for navigator to follow 
     data: {
         // data if method is set to 'PUT'
-    }
-    timeout: 31000 // defaults to 31000
-    headers: {} // HTTP request headers are automatically set and we do not recommend overwriting them
+    },
+    timeout: 31000, // defaults to 31000
+    headers: {}, // HTTP request headers are automatically set and we do not recommend overwriting them
     relativeEntryPoint: '/clients' // this option can be set if you know where to begin within the Creator DeviceServer API, can be useful to cut down steps
 }, function(cb){});
 ```
@@ -185,7 +190,7 @@ To run creator-node tests first you need to open up the test/config.js file and 
 Thereafter, you can run the command below and initiate the mocha tests.
 
 ```js
-npm test
+$ npm test
 ```
 
 ## Help
