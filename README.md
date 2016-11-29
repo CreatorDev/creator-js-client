@@ -59,10 +59,70 @@ As you may already know, creator rest api is using what is called the HATEOAS RE
 
 Using this library you have two main ways of accessing resources. 
 
-1. Using the service layer functions
-2. Using the raw request method
+1. Using the raw request method
+2. Using the service layer functions
 
-### 1. Service Layer functions
+### 1. The Request Method
+
+The request method provide a very flexible way of accessing any resource you would like to interact with.
+
+The structure for this method is as follows:
+
+```js 
+creator.request({
+    // Options
+}, function(data){
+    // Do something with data
+});
+```
+
+Now this method can be used to GET, POST, PUT or DELETE resources on the API.
+
+**GET example** 
+
+```js
+creator.request({
+    steps: ['clients']
+}, function(clients){
+    console.log(clients);
+});
+```
+
+This will fetch you an array of your clients talking to the DeviceServer.
+
+**PUT example**
+
+```js
+creator.request({
+    method: 'PUT',
+    steps: ['clients', {Name: 'CLIENT_NAME'}, 'objecttypes', {ObjectTypeID: '3201'}, 'instances', {InstanceID: '0'}],
+    data: {
+        DigitalOutputState: true
+    }
+}, function(cb){});
+
+```
+When you run this function, it will navigate until it finds the instance at the end of the steps option and set the DigitalOutputState to true.
+
+#### Available Options
+You can set the following options when calling the request(); method
+
+```js
+creator.request({
+    follow: true, //defaults to true, if this is set to true steps should be provided
+    method: 'PUT', // defaults to GET 
+    steps: ['accesskeys'], // steps for navigator to follow 
+    data: {
+        // data if method is set to 'PUT'
+    },
+    timeout: 31000, // defaults to 31000
+    headers: {}, // HTTP request headers are automatically set and we do not recommend overwriting them
+    relativeEntryPoint: '/clients' // this option can be set if you know where to begin within the Creator DeviceServer API, can be useful to cut down steps
+}, function(cb){});
+```
+
+
+### 2. Service Layer functions
 
 These functions provide a great way of accessing a resource very quickly without dealing with any technical details at all.
 
@@ -124,65 +184,6 @@ A typical response example, containing one AwaLWM2 client - "ci40-board":
 * Metrics Services (TBA)
 * Object Resource Services (TBA)
 
-
-### 2. The Request Method
-
-The request method provide a very flexible way of accessing any resource you would like to interact with.
-
-The structure for this method is as follows:
-
-```js 
-creator.request({
-    // Options
-}, function(data){
-    // Do something with data
-});
-```
-
-Now this method can be used to GET, POST, PUT or DELETE resources on the API.
-
-**GET example** 
-
-```js
-creator.request({
-    steps: ['clients']
-}, function(clients){
-    console.log(clients);
-});
-```
-
-This will fetch you an array of your clients talking to the DeviceServer.
-
-**PUT example**
-
-```js
-creator.request({
-    method: 'PUT',
-    steps: ['clients', {Name: 'CLIENT_NAME'}, 'objecttypes', {ObjectTypeID: '3201'}, 'instances', {InstanceID: '0'}],
-    data: {
-        DigitalOutputState: true
-    }
-}, function(cb){});
-
-```
-When you run this function, it will navigate until it finds the instance at the end of the steps option and set the DigitalOutputState to true.
-
-#### Available Options
-You can set the following options when calling the request(); method
-
-```js
-creator.request({
-    follow: true, //defaults to true, if this is set to true steps should be provided
-    method: 'PUT', // defaults to GET 
-    steps: ['accesskeys'], // steps for navigator to follow 
-    data: {
-        // data if method is set to 'PUT'
-    },
-    timeout: 31000, // defaults to 31000
-    headers: {}, // HTTP request headers are automatically set and we do not recommend overwriting them
-    relativeEntryPoint: '/clients' // this option can be set if you know where to begin within the Creator DeviceServer API, can be useful to cut down steps
-}, function(cb){});
-```
 ## Test
 
 To run creator-node tests first you need to open up the test/config.js file and put a valid pair of access key and secret in it.
