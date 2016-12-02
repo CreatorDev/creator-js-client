@@ -62,6 +62,8 @@ Using this library you have two main ways of accessing resources.
 1. Using the raw request method
 2. Using the service layer functions
 
+Please note that regrdless of the method chosen to access resources, data types of the arguments that you pass in are very important. For example if you are filtering down for the ObjectID 3201 then it needs to be passed in as a String -> '3201' rather than in the form of an integer.
+
 ### 1. The Request Method
 
 The request method provide a very flexible way of accessing any resource you would like to interact with.
@@ -146,29 +148,7 @@ A typical response example, containing one AwaLWM2 client - "ci40-board":
     {
       "Name": "ci40-board",
       "Links": [
-        {
-          "rel": "self",
-          "href": "https://deviceserver.creatordev.io/clients/client_ID"
-        },
-        {
-          "rel": "remove",
-          "href": "https://deviceserver.creatordev.io/clients/client_ID"
-        },
-        {
-          "rel": "objecttypes",
-          "href": "https://deviceserver.creatordev.io/clients/client_ID/objecttypes",
-          "type": "application/vnd.imgtec.objecttypes+json"
-        },
-        {
-          "rel": "subscriptions",
-          "href": "https://deviceserver.creatordev.io/clients/client_ID/subscriptions",
-          "type": "application/vnd.imgtec.subscriptions+json"
-        },
-        {
-          "rel": "metrics",
-          "href": "https://deviceserver.creatordev.io/clients/client_ID/metrics",
-          "type": "application/vnd.imgtec.metrics+json"
-        }
+        ...
       ]
     }
   ]
@@ -179,10 +159,22 @@ A typical response example, containing one AwaLWM2 client - "ci40-board":
 
 #### Available service layers
 
-* Device Services
-* Subscription Services (TBA)
-* Metrics Services (TBA)
-* Object Resource Services (TBA)
+* Client Services - via creator.clients
+  * ``` getClients(cb()); ```
+  * ``` getClientByName(clientName, cb()); ```
+* Metrics Services - via creator.metrics
+  * ``` getUserMetrics(cb()); ```
+  * ``` getClientMetrics(clientName, cb()); ```
+* Object Resource Services - via creator.resources
+  * ``` getClientObjects(clientName, cb()); ```
+  * ``` getClientObject(clientName, objectID, cb()); ```
+  * ``` getClientObjectInstanceByID(clientName, objectID, instanceID, cb()); ```
+  * ``` writeClientObjectInstanceByID(clientName, objectID, instanceID, data, cb()); ```
+* Subscription Services - via creator.subscriptions
+  * ``` getUserSubscriptions(cb()); ```
+  * ``` getClientSubscriptions(clientName, cb()); ```
+
+Please note that the high level API is to be expanded to cover more areas of the DeviceServer. 
 
 ## Test
 
