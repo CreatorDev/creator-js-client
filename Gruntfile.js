@@ -2,7 +2,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         dco: {
-            path: "/"
+            path: "/",
+            commitish: process.env.TRAVIS_COMMIT_RANGE
         },
         jshint: {
             files: ['Gruntfile.js', 'index.js', 'lib/**/*.js', 'test/**/*.js'], /* Options are defined within .jshintrc */
