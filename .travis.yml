@@ -3,4 +3,4 @@ node_js:
 - '6.1'
 script:
 - grunt test
-- npm test
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then npm test; fi'
