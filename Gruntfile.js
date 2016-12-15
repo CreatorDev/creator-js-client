@@ -1,9 +1,7 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        dco: {
-            path: "/"
-        },
+        // dco: { path: "/" },
         jshint: {
             files: ['Gruntfile.js', 'index.js', 'lib/**/*.js', 'test/**/*.js'], /* Options are defined within .jshintrc */
         }
@@ -11,10 +9,10 @@ module.exports = function(grunt) {
 
     /* Load */
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-dco');
+    // grunt.loadNpmTasks('grunt-dco');
 
     /* Register */
-    grunt.registerTask('default', ['jshint', 'dco']);
-    grunt.registerTask('test', ['jshint', 'dco']);
+    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('test', ['jshint']);
 
 };
