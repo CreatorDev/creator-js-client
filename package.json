@@ -35,6 +35,7 @@
     }
   ],
   "dependencies": {
+    "asyncawait":"^1.0.6",
     "node-cache": "^4.1.0",
     "promise": "^7.1.1",
     "q": "0.9.7",
