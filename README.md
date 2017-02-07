@@ -23,10 +23,10 @@ This js client allows you to use [The Creator IoT Framework](https://docs.creato
 
 
 ## Getting Started
-To install dependencies, just run:
+To install the client
     
 ```js
-$ npm install
+$ npm install creator-js-client
 ```
 
 ## Jump Start
@@ -178,9 +178,7 @@ Please note that the high level API is to be expanded to cover more areas of the
 
 ## Test
 
-To run creator-node tests first you need to open up the test/config.js file and put a valid pair of access key and secret in it.
-
-Thereafter, you can run the command below and initiate the mocha tests.
+You can run the command below to initiate the mocha tests. Please note that the aforementioned ENV variables need to be set for the test script to work properly.
 
 ```js
 $ npm test
